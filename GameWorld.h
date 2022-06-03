@@ -5,6 +5,10 @@
 
 #include "WorldBase.h"
 
+#include "GameObjects.h"
+class ObjectBase;
+class GameObject;
+class Dawnbreaker;
 class GameWorld : public WorldBase {
 public:
   GameWorld();
@@ -18,7 +22,14 @@ public:
 
   virtual bool IsGameOver() const override;
 
+  void add_item(GameObject* object);
+
+  int object_num();
+
 private:
+    std::list<GameObject*> object_list;
+    int Game_life = 3;
+    Dawnbreaker *player;
 
 };
 
