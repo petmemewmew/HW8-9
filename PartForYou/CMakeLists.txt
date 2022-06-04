@@ -89,7 +89,28 @@ add_library(
   src/PartForYou/GameObjects.cpp
   src/PartForYou/Dawnbreaker.cpp
   src/PartForYou/Dawnbreaker.h
-
+  src/PartForYou/Alphatron.h
+  src/PartForYou/Alphatron.cpp
+  src/PartForYou/Blue_Bullet.h
+  src/PartForYou/Blue_Bullet.cpp
+  src/PartForYou/Explosion.h
+  src/PartForYou/Explosion.cpp
+  src/PartForYou/HP_Restore_Goodie.h
+  src/PartForYou/HP_Restore_Goodie.cpp
+  src/PartForYou/Meteor.cpp
+  src/PartForYou/Meteor.h
+  src/PartForYou/Meteor_Goodie.h
+  src/PartForYou/Meteor_Goodie.cpp
+  src/PartForYou/Omegatron.cpp
+  src/PartForYou/Omegatron.h
+  src/PartForYou/Power_Up_Goodie.cpp
+  src/PartForYou/Power_Up_Goodie.h
+  src/PartForYou/Red_Bullet.cpp
+  src/PartForYou/Red_Bullet.h
+  src/PartForYou/Sigmatron.cpp
+  src/PartForYou/Sigmatron.h
+  src/PartForYou/Star.cpp
+  src/PartForYou/Star.h
   src/utils.h
 )
 
