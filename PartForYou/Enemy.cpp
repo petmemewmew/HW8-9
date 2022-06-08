@@ -12,17 +12,6 @@ Enemy::Enemy(int IMGID, int x, int y, int in_HP, int in_hit, int in_speed, GameW
     speed = in_speed;
 }
 
-int Enemy::is_enemy() {
-    return 1;
-}
-
-int Enemy::is_blue_bullet() {
-    return 0;
-}
-
-int Enemy::is_meteor() {
-    return 0;
-}
 
 void Enemy::cost_life(int hit) {
     HP -= hit;
@@ -101,5 +90,10 @@ void Enemy::Update() {
     }
 
     //check crash
+}
+
+std::string Enemy::return_type() {
+    std::string type = "Enemy";
+    return type;
 }
 

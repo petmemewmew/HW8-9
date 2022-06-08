@@ -19,6 +19,8 @@ class GameObject;
 
 class Dawnbreaker;
 
+class Enemy;
+
 class GameWorld : public WorldBase {
 public:
     GameWorld();

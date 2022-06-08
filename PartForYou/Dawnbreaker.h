@@ -22,11 +22,8 @@ public:
 
     void life_cost(int hurt);
 
-    int is_enemy() override;
+    std::string return_type() override;
 
-    int is_blue_bullet() override;
-
-    int is_meteor() override;
 
 private:
     int energy = 10;

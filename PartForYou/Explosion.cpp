@@ -16,12 +16,9 @@ void Explosion::Update() {
     }
 }
 
-int Explosion::is_enemy() {
-    return 0;
-}
-
-int Explosion::is_blue_bullet() {
-    return 0;
+std::string Explosion::return_type() {
+    std::string type = "Explosion";
+    return type;
 }
 
 

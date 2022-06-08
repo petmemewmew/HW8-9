@@ -18,11 +18,7 @@ public:
 
     void Update() override;
 
-    int is_enemy() override;
-
-    int is_blue_bullet() override;
-
-    int is_meteor() override;
+    std::string return_type() override;
 
     int return_hurt() override;
 

@@ -53,16 +53,9 @@ void Dawnbreaker::life_cost(int hurt) {
     HP -= hurt;
 }
 
-int Dawnbreaker::is_enemy() {
-    return 0;
-}
-
-int Dawnbreaker::is_blue_bullet() {
-    return 0;
-}
-
-int Dawnbreaker::is_meteor() {
-    return 0;
+std::string Dawnbreaker::return_type() {
+    std::string type = "Dawnbreaker";
+    return type;
 }
 
 

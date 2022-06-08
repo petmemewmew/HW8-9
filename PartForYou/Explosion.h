@@ -14,9 +14,7 @@ public:
 
     void Update() override;
 
-    int is_enemy() override;
-
-    int is_blue_bullet() override;
+    std::string return_type() override;
 private:
     int tick = 0;
 };

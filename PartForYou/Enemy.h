@@ -14,8 +14,6 @@ class Enemy: public GameObject{
 public:
     Enemy(int IMGID, int x, int y, int in_HP, int in_hit, int in_speed, GameWorld* world);
 
-    int is_enemy() override;
-
     void Update() override;
 
     void crash(GameObject* it);
@@ -25,6 +23,8 @@ public:
     void cost_life(int hit);
 
     virtual void attack() = 0;
+
+    std::string return_type() override;
 
 protected:
     int speed;

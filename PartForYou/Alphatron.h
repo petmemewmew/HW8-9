@@ -14,5 +14,6 @@ public:
     void destructed() override;
 
     void attack() override;
+
 };
 #endif //DAWNBREAKER_ALPHATRON_H

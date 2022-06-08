@@ -46,14 +46,8 @@ void Red_Bullet::Update() {
     return;
 }
 
-int Red_Bullet::is_enemy() {
-    return 0;
+std::string Red_Bullet::return_type() {
+    std::string type = "Red_Bullet";
+    return type;
 }
 
-int Red_Bullet::is_blue_bullet() {
-    return 0;
-}
-
-int Red_Bullet::is_meteor() {
-    return 0;
-}

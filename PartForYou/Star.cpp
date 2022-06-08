@@ -15,14 +15,7 @@ void Star::Update() {
     }
 }
 
-int Star::is_blue_bullet() {
-    return 0;
-}
-
-int Star::is_meteor() {
-    return 0;
-}
-
-int Star::is_enemy() {
-    return 0;
+std::string Star::return_type() {
+    std::string type = "Star";
+    return type;
 }

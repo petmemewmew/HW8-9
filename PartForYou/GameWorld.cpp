@@ -110,10 +110,10 @@ bool GameWorld::is_crash(GameObject* object1, GameObject* object2) {
 int GameWorld::iterate_crash(Enemy* enemy) {
     for(auto it = object_list.begin(); it != object_list.end(); it++){
         if (is_crash(*it, enemy)){
-            if ((*it)->is_blue_bullet()){
+            if ((*it)->return_type() == "Blue_Bullet"){
                 return 1;
             }
-            if ((*it)->is_meteor()){
+            if ((*it)->return_type() == "Meteor"){
                 return 2;
             }
         }

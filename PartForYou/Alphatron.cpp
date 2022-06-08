@@ -33,7 +33,6 @@ void Alphatron::attack() {
 
 
 
-
 //void Alphatron::Update() {
 //    if (is_dead) {
 //        return;

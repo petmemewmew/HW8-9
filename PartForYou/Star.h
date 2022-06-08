@@ -18,11 +18,7 @@ public:
 
     void Update() override;
 
-    int is_blue_bullet() override;
-
-    int is_meteor() override;
-
-    int is_enemy() override;
+    std::string return_type() override;
 };
 
 #endif //DAWNBREAKER_STAR_H

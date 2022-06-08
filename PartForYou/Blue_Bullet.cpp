@@ -21,18 +21,12 @@ void Blue_Bullet::Update() {
     }
 }
 
-int Blue_Bullet::is_enemy() {
-    return 0;
-}
-
-int Blue_Bullet::is_blue_bullet() {
-    return 1;
-}
-
-int Blue_Bullet::is_meteor() {
-    return 0;
-}
 
 int Blue_Bullet::return_hurt() {
     return hurt;
+}
+
+std::string Blue_Bullet::return_type() {
+    std::string type = "Blue_Bullet";
+    return type;
 }

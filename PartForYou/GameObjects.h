@@ -25,6 +25,8 @@ public:
 
     void set_dead();
 
+    virtual std::string return_type() = 0;
+
 };
 
 
