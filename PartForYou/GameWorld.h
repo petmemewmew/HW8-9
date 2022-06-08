@@ -47,13 +47,17 @@ public:
 
     bool is_crash(GameObject *object1, GameObject *object2);
 
-    int iterate_crash(Enemy *enemy);
+    GameObject* iterate_crash(GameObject* object);
 
     void add_kill();
 
     int return_HP();
 
     void add_HP(int amount);
+
+    void level_up();
+
+    void get_meteor();
 
 private:
     std::list<GameObject *> object_list;

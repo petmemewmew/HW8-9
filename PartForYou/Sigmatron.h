@@ -7,6 +7,7 @@
 
 #include "Enemy.h"
 #include "Explosion.h"
+#include "HP_Restore_Goodie.h"
 
 class Sigmatron: public Enemy{
 public:

@@ -14,6 +14,10 @@ protected:
 
     GameWorld *this_world;
 
+    int HP = 0;
+
+    int hurt = 0;
+
 public:
     void clear();
 
@@ -24,6 +28,8 @@ public:
     ~GameObject() override;
 
     void set_dead();
+
+    void get_hurt(int hurt);
 
     virtual std::string return_type() = 0;
 

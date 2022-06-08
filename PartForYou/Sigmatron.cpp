@@ -16,7 +16,7 @@ void Sigmatron::destructed() {
     this_world->IncreaseScore(100);
 
     if(int i = randInt(1,5) == 1){
-        this_world->add_item();//not written
+        this_world->add_item(new HP_Restore_Goodie(GetX(), GetY(), this_world));//not written
     }
 }
 

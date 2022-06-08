@@ -28,10 +28,15 @@ public:
 
     void life_increase(int amount);
 
+    void level_count();
+
+    void get_meteor();
+
 
 private:
+    int meteor_count = 0;
     int energy = 10;
-    int HP = 100;
+    int level_up = 0;
 };
 
 

@@ -28,8 +28,6 @@ public:
 
 protected:
     int speed;
-    int HP;
-    int hurt;
     int strategy;
     int energy;
     int strategy_time = 0;

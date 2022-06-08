@@ -11,12 +11,29 @@ Blue_Bullet::Blue_Bullet(int x, int y, double size, int hit, GameWorld *world) :
 void Blue_Bullet::Update() {
     if (is_dead) {
         return;
-    } else {
-        if (GetY() > WINDOW_HEIGHT) {
-            is_dead = 1;
+    }
+    if (GetY() > WINDOW_HEIGHT) {
+        is_dead = 1;
+        return;
+    }
+
+    if (this_world->iterate_crash(this) != nullptr){
+        if(this_world->iterate_crash(this)->return_type() == "Enemy"){
+            this_world->iterate_crash(this)->get_hurt(hurt);
+            set_dead();
             return;
-        } else {
-            MoveTo(GetX(), GetY() + 6);
+        }
+    }
+
+
+
+    MoveTo(GetX(), GetY() + 6);
+
+    if (this_world->iterate_crash(this) != nullptr){
+        if(this_world->iterate_crash(this)->return_type() == "Enemy"){
+            this_world->iterate_crash(this)->get_hurt(hurt);
+            set_dead();
+            return;
         }
     }
 }

@@ -69,4 +69,12 @@ void Dawnbreaker::life_increase(int amount) {
     }
 }
 
+void Dawnbreaker::level_count() {
+    level_up ++;
+}
+
+void Dawnbreaker::get_meteor() {
+    meteor_count++;
+}
+
 

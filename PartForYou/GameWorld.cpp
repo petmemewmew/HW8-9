@@ -98,30 +98,12 @@ Dawnbreaker *GameWorld::return_Dawnbreaker() {
     return player;
 }
 
-bool GameWorld::is_crash(GameObject* object1, GameObject* object2) {
-    if (object1->GetX() == object2->GetX()){
-        if(object1->GetY() == object2->GetY()){
-            return true;
-        }
+bool GameWorld::is_crash(GameObject *object1, GameObject *object2) {
+    double d = sqrt((object1->GetX() - object2->GetX()) * (object1->GetX() - object2->GetX()) + (object1->GetY() - object2->GetY()) * (object1->GetY() - object2->GetY()));
+    if(d < 30.0 * (object1->GetSize() + object2->GetSize())){
+        return true;
     }
     return false;
-}
-
-int GameWorld::iterate_crash(Enemy* enemy) {
-    for(auto it = object_list.begin(); it != object_list.end(); it++){
-        if (is_crash(*it, enemy)){
-            if ((*it)->return_type() == "Blue_Bullet"){
-                return 1;
-            }
-            if ((*it)->return_type() == "Meteor"){
-                return 2;
-            }
-        }
-    }
-    if ((player->GetY() == enemy->GetY()) && (player->GetX() == enemy->GetX())){
-        return 3;
-    }
-    return 0;
 }
 
 void GameWorld::add_kill() {
@@ -134,6 +116,28 @@ int GameWorld::return_HP() {
 
 void GameWorld::add_HP(int amount) {
     player->life_increase(amount);
+}
+
+void GameWorld::level_up() {
+    player->level_count();
+}
+
+void GameWorld::get_meteor() {
+    player->get_meteor();
+}
+
+GameObject* GameWorld::iterate_crash(GameObject *object) {
+    for (auto it = object_list.begin(); it != object_list.end(); it++) {
+        if (is_crash(*it, object)) {
+            if (*it != object){
+                return *it;
+            }
+        }
+    }
+    if (is_crash(player, object)) {
+        return player;
+    }
+    return nullptr;
 }
 
 

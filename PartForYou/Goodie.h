@@ -8,6 +8,7 @@
 #include "GameWorld.h"
 
 class Goodie: public GameObject{
+public:
     Goodie(int IMGID, int x, int y, GameWorld* world);
 
     void Update() override;

@@ -7,6 +7,8 @@
 
 #include "Enemy.h"
 #include "Explosion.h"
+#include "Meteor_Goodie.h"
+#include "Power_Up_Goodie.h"
 
 class Omegatron: public Enemy{
 public:
