@@ -51,6 +51,10 @@ public:
 
     void add_kill();
 
+    int return_HP();
+
+    void add_HP(int amount);
+
 private:
     std::list<GameObject *> object_list;
 

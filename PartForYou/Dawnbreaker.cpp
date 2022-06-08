@@ -58,4 +58,15 @@ std::string Dawnbreaker::return_type() {
     return type;
 }
 
+int Dawnbreaker::get_life() {
+    return HP;
+}
+
+void Dawnbreaker::life_increase(int amount) {
+    HP += amount;
+    if (HP > 100){
+        HP = 100;
+    }
+}
+
 

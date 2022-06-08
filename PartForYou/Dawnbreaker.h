@@ -24,6 +24,10 @@ public:
 
     std::string return_type() override;
 
+    int get_life();
+
+    void life_increase(int amount);
+
 
 private:
     int energy = 10;

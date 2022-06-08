@@ -128,4 +128,12 @@ void GameWorld::add_kill() {
     kill_count++;
 }
 
+int GameWorld::return_HP() {
+    return player->get_life();
+}
+
+void GameWorld::add_HP(int amount) {
+    player->life_increase(amount);
+}
+
 
