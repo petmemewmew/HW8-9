@@ -20,6 +20,8 @@ public:
 
     virtual void destructed() = 0;
 
+    void set_dead() override;
+
     void cost_life(int hit);
 
     virtual void attack() = 0;

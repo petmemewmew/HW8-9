@@ -21,6 +21,7 @@ void GameWorld::Init() {
         object_list.push_back(p);
 //        std::cout<<object_list.size()<<std::endl;
     }
+    require = 3 * GetLevel();
 }
 
 void GameWorld::add_item(GameObject *object) {
@@ -35,6 +36,7 @@ LevelStatus GameWorld::Update() {
         double size = randInt(10, 40) * 1.0 / 100;
         object_list.push_back(new Star(x, y, size, this));
     }
+
 //    std::list<GameObject*>::iterator it;
     player->Update();
     for (auto it = object_list.begin(); it != object_list.end(); it++) {
@@ -129,8 +131,10 @@ void GameWorld::get_meteor() {
 GameObject* GameWorld::iterate_crash(GameObject *object) {
     for (auto it = object_list.begin(); it != object_list.end(); it++) {
         if (is_crash(*it, object)) {
-            if (*it != object){
-                return *it;
+            if (*it != object) {
+                if (!(*it)->check_dead()) {
+                    return *it;
+                }
             }
         }
     }

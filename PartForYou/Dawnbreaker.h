@@ -7,6 +7,7 @@
 
 #include "GameObjects.h "
 #include "GameWorld.h"
+#include "Meteor.h"
 
 class Enemy;
 

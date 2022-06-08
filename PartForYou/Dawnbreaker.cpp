@@ -37,11 +37,19 @@ void Dawnbreaker::Update() {
         }
         if (this_world->GetKey(KeyCode::FIRE1)) {
             if (energy >= 10) {
-                this_world->add_item(new Blue_Bullet(GetX(), GetY() + 50, 0.5, 5, this_world));
+                this_world->add_item(
+                        new Blue_Bullet(GetX(), GetY() + 50, 0.5 + 0.1 * level_up, 5 + 3 * level_up, this_world));
 //                std::cout<<this_world->object_num()<<std::endl;
                 energy -= 10;
             }
         }
+        if(this_world->GetKeyDown(KeyCode::FIRE2)){
+            if(meteor_count > 0){
+                meteor_count--;
+                this_world->add_item(new Meteor(GetX(), GetY() + 100, this_world));
+            }
+        }
+
         if (energy < 10) {
             energy++;
         }
@@ -64,13 +72,13 @@ int Dawnbreaker::get_life() {
 
 void Dawnbreaker::life_increase(int amount) {
     HP += amount;
-    if (HP > 100){
+    if (HP > 100) {
         HP = 100;
     }
 }
 
 void Dawnbreaker::level_count() {
-    level_up ++;
+    level_up++;
 }
 
 void Dawnbreaker::get_meteor() {

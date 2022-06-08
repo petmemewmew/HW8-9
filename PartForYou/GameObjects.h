@@ -27,7 +27,7 @@ public:
 
     ~GameObject() override;
 
-    void set_dead();
+    virtual void set_dead();
 
     void get_hurt(int hurt);
 

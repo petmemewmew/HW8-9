@@ -66,6 +66,10 @@ private:
 
     int kill_count = 0;
 
+    int on_screen = 0;
+
+    int require = 0;
+
     Dawnbreaker *player;
 };
 

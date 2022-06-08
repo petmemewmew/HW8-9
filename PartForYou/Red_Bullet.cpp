@@ -35,14 +35,15 @@ void Red_Bullet::Update() {
                     default:
                         break;
                 }
-                if ((this_world->Get_Dawnbreaker_X() == GetX()) && (this_world->Get_Dawnbreaker_Y() == GetY())) {
-                    this_world->return_Dawnbreaker()->life_cost(hurt);
-                    is_dead = 1;
+                if (this_world->is_crash(this, this_world->return_Dawnbreaker())) {
+                    this_world->return_Dawnbreaker()->get_hurt(hurt);
+                    set_dead();
                     return;
                 }
             }
         }
     }
+
     return;
 }
 

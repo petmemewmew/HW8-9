@@ -29,10 +29,25 @@ void Enemy::Update() {
         is_dead = 1;
         return;
     }
-    //crash not written
+    GameObject* crash_item = this_world->iterate_crash(this);
+    if(crash_item != nullptr){
+        if(crash_item->return_type() == "Blue_Bullet"){
+            get_hurt(crash_item->return_hurt());
+            crash_item->set_dead();
+        }
+        else if(crash_item->return_type() == "Dawnbreaker"){
+            set_dead();
+            crash_item->get_hurt(20);
+            return;
+        }
+        else if(crash_item->return_type() == "Meteor"){
+            set_dead();
+            return;
+        }
+    }
 
     if (HP <= 0) {
-        destructed();
+        set_dead();
         return;
     }
 
@@ -89,11 +104,37 @@ void Enemy::Update() {
             break;
     }
 
-    //check crash
+    GameObject* crash_item1 = this_world->iterate_crash(this);
+    if(crash_item1 != nullptr){
+        if(crash_item1->return_type() == "Blue_Bullet"){
+            get_hurt(crash_item1->return_hurt());
+            crash_item1->set_dead();
+        }
+        else if(crash_item1->return_type() == "Dawnbreaker"){
+            set_dead();
+            crash_item1->get_hurt(20);
+            return;
+        }
+        else if(crash_item1->return_type() == "Meteor"){
+            set_dead();
+            return;
+        }
+    }
+
+    if (HP <= 0) {
+        set_dead();
+        return;
+    }
+
 }
 
 std::string Enemy::return_type() {
     std::string type = "Enemy";
     return type;
+}
+
+void Enemy::set_dead() {
+    is_dead = 1;
+    destructed();
 }
 
