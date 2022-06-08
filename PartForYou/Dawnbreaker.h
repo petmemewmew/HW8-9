@@ -5,4 +5,33 @@
 #ifndef PARTFORYOU_DAWNBREAKER_H
 #define PARTFORYOU_DAWNBREAKER_H
 
+#include "GameObjects.h "
+#include "GameWorld.h"
+
+class Enemy;
+
+class GameObject;
+
+class GameWorld;
+
+class Dawnbreaker : public GameObject {
+public:
+    Dawnbreaker(GameWorld *world);
+
+    void Update() override;
+
+    void life_cost(int hurt);
+
+    int is_enemy() override;
+
+    int is_blue_bullet() override;
+
+    int is_meteor() override;
+
+private:
+    int energy = 10;
+    int HP = 100;
+};
+
+
 #endif //PARTFORYOU_DAWNBREAKER_H
