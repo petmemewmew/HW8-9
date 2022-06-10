@@ -6,6 +6,7 @@
 
 Sigmatron::Sigmatron(int x, int y, int HP, int speed, GameWorld *world): Enemy(IMGID_SIGMATRON, x, y, HP, 0, speed, world){
     energy = 0;
+//    std::cout<<"successssss"<<std::endl;
 }
 
 void Sigmatron::destructed() {
@@ -15,7 +16,7 @@ void Sigmatron::destructed() {
 
     this_world->IncreaseScore(100);
 
-    if(int i = randInt(1,5) == 1){
+    if(randInt(1, 5) == 1){
         this_world->add_item(new HP_Restore_Goodie(GetX(), GetY(), this_world));//not written
     }
 }

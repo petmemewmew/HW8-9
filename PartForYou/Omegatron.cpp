@@ -5,7 +5,8 @@
 #include "Omegatron.h"
 
 Omegatron::Omegatron(int x, int y, int HP, int hit, int speed, GameWorld *world) : Enemy(IMGID_OMEGATRON, x, y, HP, hit,
-                                                                                         speed, this_world) {
+                                                                                         speed, world) {
+    std::cout<<"successssss"<<std::endl;
     energy = 50;
 }
 
@@ -17,8 +18,9 @@ void Omegatron::destructed() {
     this_world->IncreaseScore(200);
 
     int i = randInt(1, 5);
+//    if (i == 1 || i == 2) {
     if (i == 1 || i == 2) {
-        if (int j = randInt(1, 5) == 1) {
+        if (randInt(1, 5) == 1) {
             this_world->add_item(new Meteor_Goodie(GetX(), GetY(), this_world));//not written
         } else {
             this_world->add_item(new Power_Up_Goodie(GetX(), GetY(), this_world));

@@ -59,6 +59,10 @@ public:
 
     void get_meteor();
 
+    void count_an_enemy();
+
+    void kill_an_enemy();
+
 private:
     std::list<GameObject *> object_list;
 
@@ -69,6 +73,12 @@ private:
     int on_screen = 0;
 
     int require = 0;
+
+    int to_destroy = 0;
+
+    int max_on_screen = 0;
+
+    int allowed = 0;
 
     Dawnbreaker *player;
 };

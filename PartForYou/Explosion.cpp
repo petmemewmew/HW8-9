@@ -4,7 +4,7 @@
 
 #include "Explosion.h"
 
-Explosion::Explosion(int x, int y,GameWorld* world): GameObject(IMGID_EXPLOSION, x, y, 0, 3, 4.5, world) {
+Explosion::Explosion(int x, int y, GameWorld* world): GameObject(IMGID_EXPLOSION, x, y, 0, 3, 4.5, world) {
     tick = 0;
 }
 

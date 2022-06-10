@@ -7,7 +7,9 @@
 Enemy::Enemy(int IMGID, int x, int y, int in_HP, int in_hit, int in_speed, GameWorld *world) : GameObject(IMGID, x, y,
                                                                                                           180, 0, 1.0,
                                                                                                           world) {
+    this_world->count_an_enemy();
     HP = in_HP;
+    strategy_time = 0;
     hurt = in_hit;
     speed = in_speed;
 }
@@ -27,20 +29,21 @@ void Enemy::Update() {
     }
     if (GetY() < 0) {
         is_dead = 1;
+        this_world->kill_an_enemy();
         return;
     }
-    GameObject* crash_item = this_world->iterate_crash(this);
-    if(crash_item != nullptr){
-        if(crash_item->return_type() == "Blue_Bullet"){
-            get_hurt(crash_item->return_hurt());
-            crash_item->set_dead();
-        }
-        else if(crash_item->return_type() == "Dawnbreaker"){
+//    GameObject* crash_item = this_world->iterate_crash(this);
+    if (this_world->iterate_crash(this) != nullptr) {
+        if (this_world->iterate_crash(this)->return_type() == "Blue_Bullet") {
+//            get_hurt(this_world->iterate_crash(this)->return_hurt());
+            HP -= this_world->iterate_crash(this)->return_hurt();
+            this_world->iterate_crash(this)->set_dead();
+        } else if (this_world->iterate_crash(this)->return_type() == "Dawnbreaker") {
+//            std::cout<<"111111111111"<<std::endl;
+            this_world->iterate_crash(this)->get_hurt(20);
             set_dead();
-            crash_item->get_hurt(20);
             return;
-        }
-        else if(crash_item->return_type() == "Meteor"){
+        } else if (this_world->iterate_crash(this)->return_type() == "Meteor") {
             set_dead();
             return;
         }
@@ -104,18 +107,18 @@ void Enemy::Update() {
             break;
     }
 
-    GameObject* crash_item1 = this_world->iterate_crash(this);
-    if(crash_item1 != nullptr){
-        if(crash_item1->return_type() == "Blue_Bullet"){
-            get_hurt(crash_item1->return_hurt());
-            crash_item1->set_dead();
-        }
-        else if(crash_item1->return_type() == "Dawnbreaker"){
+//    GameObject* crash_item1 = this_world->iterate_crash(this);
+    if (this_world->iterate_crash(this) != nullptr) {
+        if (this_world->iterate_crash(this)->return_type() == "Blue_Bullet") {
+//            get_hurt(this_world->iterate_crash(this)->return_hurt());
+            HP -= this_world->iterate_crash(this)->return_hurt();
+            this_world->iterate_crash(this)->set_dead();
+        } else if (this_world->iterate_crash(this)->return_type() == "Dawnbreaker") {
+//            std::cout<<"1111111111112"<<std::endl;
+            this_world->iterate_crash(this)->get_hurt(20);
             set_dead();
-            crash_item1->get_hurt(20);
             return;
-        }
-        else if(crash_item1->return_type() == "Meteor"){
+        } else if (this_world->iterate_crash(this)->return_type() == "Meteor") {
             set_dead();
             return;
         }
@@ -134,7 +137,8 @@ std::string Enemy::return_type() {
 }
 
 void Enemy::set_dead() {
-    is_dead = 1;
+    this_world->kill_an_enemy();
     destructed();
+    is_dead = 1;
 }
 
