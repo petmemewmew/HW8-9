@@ -18,7 +18,8 @@ void Red_Bullet::Update() {
             is_dead = 1;
             return;
         } else {
-            if ((this_world->Get_Dawnbreaker_X() == GetX()) && (this_world->Get_Dawnbreaker_Y() == GetY())) {
+//            GameObject* crash_item1 = this_world->iterate_crash(this);
+            if (this_world->is_crash(this, this_world->return_Dawnbreaker())) {
                 this_world->return_Dawnbreaker()->life_cost(hurt);
                 is_dead = 1;
                 return;

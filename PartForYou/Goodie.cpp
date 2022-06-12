@@ -16,15 +16,13 @@ void Goodie::Update() {
         return;
     }
 
-    if (this_world->Get_Dawnbreaker_X() == GetX()) {
-        if (this_world->Get_Dawnbreaker_Y() == GetY()) {
+    if (this_world->is_crash(this, this_world->return_Dawnbreaker())){
 //            this_world->add_HP(50);
 //            this_world->IncreaseScore(20);
             crash();
             is_dead = 1;
             return;
         }
-    }
 
     MoveTo(GetX(), GetY() - 2);
 

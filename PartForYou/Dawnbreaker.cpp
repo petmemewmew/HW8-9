@@ -85,4 +85,8 @@ void Dawnbreaker::get_meteor() {
     meteor_count++;
 }
 
+int Dawnbreaker::meteor_count_fun() {
+    return meteor_count;
+}
+
 

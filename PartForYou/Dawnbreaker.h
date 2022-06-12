@@ -33,6 +33,8 @@ public:
 
     void get_meteor();
 
+    int meteor_count_fun();
+
 
 private:
     int meteor_count = 0;

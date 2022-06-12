@@ -6,7 +6,7 @@
 
 Omegatron::Omegatron(int x, int y, int HP, int hit, int speed, GameWorld *world) : Enemy(IMGID_OMEGATRON, x, y, HP, hit,
                                                                                          speed, world) {
-    std::cout<<"successssss"<<std::endl;
+//    std::cout<<"successssss"<<std::endl;
     energy = 50;
 }
 

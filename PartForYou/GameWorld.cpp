@@ -4,6 +4,7 @@
 #include "Alphatron.h"
 #include "Sigmatron.h"
 #include "Omegatron.h"
+#include "string"
 
 
 GameWorld::GameWorld() {
@@ -53,7 +54,7 @@ LevelStatus GameWorld::Update() {
             int p1 = 6;
             int p2 = 2 * std::max(GetLevel() - 1, 0);
             int p3 = 3 * std::max(GetLevel() - 2, 0);
-            std::cout<<p1<<','<<p2<<','<<p3<<std::endl;
+//            std::cout << p1 << ',' << p2 << ',' << p3 << std::endl;
             int ranJ = randInt(1, p1 + p2 + p3);
             if (ranJ <= p1) {
                 int x = randInt(0, WINDOW_WIDTH - 1);
@@ -61,7 +62,7 @@ LevelStatus GameWorld::Update() {
                 int HP = 20 + 2 * GetLevel();
                 int hit = 4 + GetLevel();
                 int speed = 2 + (GetLevel() / 5);
-                std::cout<<x<<","<<y<<","<<HP<<","<<hit<<","<<speed<<","<<std::endl;
+//                std::cout << x << "," << y << "," << HP << "," << hit << "," << speed << "," << std::endl;
                 object_list.push_back(new Alphatron(x, y, HP, hit, speed, this));
             } else if (ranJ <= p1+p2) {
                 int x = randInt(0, WINDOW_WIDTH - 1);
@@ -75,6 +76,7 @@ LevelStatus GameWorld::Update() {
                 int HP = 20 + GetLevel();
                 int hit = 2 + 2 * GetLevel();
                 int speed = 3 + (GetLevel() / 4);
+
 //                std::cout<<x<<","<<y<<","<<HP<<","<<hit<<","<<speed<<","<<std::endl;
                 object_list.push_back(new Omegatron(x, y, HP, hit, speed, this));
             }
@@ -108,8 +110,13 @@ LevelStatus GameWorld::Update() {
             ++it;
         }
     }
+    std::string bar = "HP: " + std::to_string(player->get_life()) + "/100   Meteors: " +
+                      std::to_string(player->meteor_count_fun()) + "   Lives: " + std::to_string(Game_life) + "   Level: " +
+                      std::to_string(GetLevel()) + "   Enemies: " + std::to_string(kill_count) + "/" +
+                      std::to_string(require) + "   Score: " +
+                      std::to_string(GetScore());
 
-    SetStatusBarMessage("HP: X/100 Meteors: X Lives: X Level: X Enemies: X/X Score: X");
+    SetStatusBarMessage(bar);
 
 //    std::cout << object_num() << std::endl;
     return LevelStatus::ONGOING;
@@ -152,12 +159,14 @@ Dawnbreaker *GameWorld::return_Dawnbreaker() {
 }
 
 bool GameWorld::is_crash(GameObject *object1, GameObject *object2) {
-    double d = sqrt((object1->GetX() - object2->GetX()) * (object1->GetX() - object2->GetX()) +
-                    (object1->GetY() - object2->GetY()) * (object1->GetY() - object2->GetY()));
-    if (d < 30.0 * (object1->GetSize() + object2->GetSize())) {
+//    double d = sqrt((object1->GetX() - object2->GetX()) * (object1->GetX() - object2->GetX()) +
+//                    (object1->GetY() - object2->GetY()) * (object1->GetY() - object2->GetY()));
+    double d = pow(object1->GetX() - object2->GetX(), 2) + pow(object1->GetY() - object2->GetY(), 2);
+    if (d < pow(30.0 * (object1->GetSize() + object2->GetSize()), 2)) {
         return true;
+    } else {
+        return false;
     }
-    return false;
 }
 
 void GameWorld::add_kill() {

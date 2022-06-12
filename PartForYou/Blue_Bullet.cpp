@@ -17,9 +17,10 @@ void Blue_Bullet::Update() {
         return;
     }
 
-    if (this_world->iterate_crash(this) != nullptr){
-        if(this_world->iterate_crash(this)->return_type() == "Enemy"){
-            this_world->iterate_crash(this)->get_hurt(hurt);
+    GameObject* crash_item1 = this_world->iterate_crash(this);
+    if (crash_item1 != nullptr){
+        if(crash_item1->return_type() == "Enemy"){
+            crash_item1->get_hurt(hurt);
             set_dead();
             return;
         }
@@ -29,9 +30,10 @@ void Blue_Bullet::Update() {
 
     MoveTo(GetX(), GetY() + 6);
 
-    if (this_world->iterate_crash(this) != nullptr){
-        if(this_world->iterate_crash(this)->return_type() == "Enemy"){
-            this_world->iterate_crash(this)->get_hurt(hurt);
+    GameObject* crash_item = this_world->iterate_crash(this);
+    if (crash_item != nullptr){
+        if(crash_item->return_type() == "Enemy"){
+            crash_item->get_hurt(hurt);
             set_dead();
             return;
         }
